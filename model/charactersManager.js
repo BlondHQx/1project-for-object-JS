@@ -1,30 +1,33 @@
+//MAIN METHOD FOR MANAGE CARDS
 class CharactersManager {
     constructor() {
         this.characters = [];
     }
     addCharacters(charac) {
         this.characters.push(charac);
-        this.displayCharacters();
+        this.displayCharacters(this.characters);
     }
-    displayCharacters() {
-        document.querySelector('.card-container').innerHTML = ""
-        gameManager.characters.forEach(elem => {
-            document.querySelector('.card-container').innerHTML += ` <div class="oplist_card_container">
-            <section class="oplist_card">
-                <img class="oplist_card_img" src="./assets/img/Removal-844.png" alt="Jäger Img">
-                <img class="oplist_card_icon" src="./assets/img/Y0R6_BADGE_Jager_L (1).png" alt="Jäger Icon">
-                <span class="name">${elem.name}</span>
-                <span class="type">${elem.type}</span>
-                <span class="squad">${elem.squad}</span>
-                <span class="role">${elem.role}</span>
-                <span class="health">${elem.health}</span>
-                <span class="speed">${elem.speed}</span>
-                <span class="difficulty">${elem.difficulty}</span>
-                <div class="button-wrapper">
-                    <button id="updateCharac" class="btn outline">UPDATE</button>
-                    <button id="updateDelete" class="btn fill">DELETE</button>
-                </div>
-            </section>
+    //DISPLAY OPERATOR CARDS
+    displayCharacters(characters) {
+        document.querySelector('.card-container').innerHTML = "";
+        characters.forEach(elem => {
+            document.querySelector('.card-container').innerHTML += ` 
+            <div class="oplist_card_container">
+                 <section class="oplist_card">
+                         <img class="oplist_card_img" src="./assets/img/Removal-844.png" alt="Jäger Img">
+                         <img class="oplist_card_icon" src="./assets/img/Y0R6_BADGE_Jager_L (1).png" alt="Jäger Icon">
+                        <span class="span_card name">${elem.name}</span>
+                        <span class="span_card type">${elem.type}</span>
+                        <span class="span_card squad">${elem.squad}</span>
+                        <span class="span_card role">${elem.role}</span>
+                        <span class="span_card health">${elem.health}</span>
+                        <span class="span_card speed">${elem.speed}</span>
+                        <span class="span_card difficulty">${elem.difficulty}</span>
+                    <div class="button-wrapper">
+                        <button id="updateCharac" class="btn outline">UPDATE</button>
+                        <button id="updateDelete" class="btn fill">DELETE</button>
+                    </div>
+                 </section>
             </div>`
             document.querySelector("#updateCharac").addEventListener('click', () => {
                 document.querySelector("#containerForm").style.display = 'none';
@@ -34,14 +37,19 @@ class CharactersManager {
             document.querySelector("#updateDelete").addEventListener('click', () => {
                 this.deleteCharac(elem);
             });
-        })
-
+        });
     }
+    //FORM FOR CREATE OPERATOR
     displayModal() {
         document.querySelector("#containerForm").innerHTML += `
         <div>
             <form>
-                <p>Update Operator :</p>
+                <div id="close_Form" class="close-container">
+                    <div class="leftright"></div>
+                    <div class="rightleft"></div>
+                    <label  class="close">close</label>
+                </div>
+            <p>Create Operator :</p>
                 <input id="name" class="name"type="text" placeholder="name" ><br>
                 <input id="type" class="type"type="text" placeholder="type"><br>
                 <input id="squad" class="squad" type="text" placeholder="squad""><br>
@@ -60,9 +68,12 @@ class CharactersManager {
                 <div class="drop drop-5"></div>
             </div>
         </div>`;
-
+        //CLOSE FORM ANYTIME WITH 'X'
+        document.querySelector('#close_Form').addEventListener('click', () => {
+            this.closeform();
+        });
+        //SUBMIT OPTION FOR CREATE CARD
         document.querySelector("#submit").addEventListener('click', () => {
-            this.deleteform();
             let name = document.querySelector('#name').value;
             let type = document.querySelector('#type').value;
             let squad = document.querySelector('#squad').value;
@@ -71,21 +82,29 @@ class CharactersManager {
             let speed = document.querySelector('#speed').value;
             let difficulty = document.querySelector('#difficulty').value;
             let newCharac = new Character(name, type, squad, role, health, speed, difficulty);
-            this.addCharacters(newCharac)
+            this.addCharacters(newCharac);
+            this.closeform();
         });
     }
+    //METHOD FOR DISPLAYED THE FORM
     displayForm() {
+        document.querySelector('#containerForm').innerHTML = ""
+        document.querySelector('#containerFormUpdate').innerHTML = ""
         document.querySelector("#mainContainer").style.display = "block"
         document.querySelector("#mainContainer").style.position = "absolute"
         document.querySelector("#operator").style.display = "none"
         document.querySelector("header").style.display = "none"
     }
-    deleteform() {
+    //METHOD FOR HIDE THE FORM
+    closeform() {
+        document.querySelector('#containerForm').innerHTML = ""
+        document.querySelector('#containerFormUpdate').innerHTML = ""
         document.querySelector("#mainContainer").style.display = "none"
         document.querySelector("#mainContainer").style.position = "relative"
         document.querySelector("#operator").style.display = "flex"
         document.querySelector("header").style.display = "block"
     }
+    //UPDATED FORM FOR CARDS 
     displayModalUpdate(charac) {
         document.querySelector("#containerFormUpdate").innerHTML +=
             `<div>
@@ -109,8 +128,8 @@ class CharactersManager {
                 <div class="drop drop-5"></div>
             </div>
             </div>`;
+        //SUBMIT BUTTON OF UPDATED FORM 
         document.querySelector("#updateSubmit").addEventListener('click', () => {
-            this.deleteform();
             let name = document.querySelector('#updateName').value;
             let type = document.querySelector('#updateType').value;
             let squad = document.querySelector('#updateSquad').value;
@@ -120,16 +139,33 @@ class CharactersManager {
             let difficulty = document.querySelector('#updateDifficulty').value;
             let newCharac = new Character(name, type, squad, role, health, speed, difficulty);
             this.updateCharac(newCharac, charac);
+            this.closeform();
         });
     }
+    //MAIN METHOD FOR UPDATED CHARACTERS
     updateCharac(charac, oldcharac) {
         let index = this.characters.indexOf(oldcharac);
         this.characters[index] = charac;
-        this.displayCharacters();
+        this.displayCharacters(this.characters);
     }
+    //DELETE METHOD FOR DELETE CARDS
     deleteCharac(charac) {
         let index = this.characters.indexOf(charac);
         this.characters.splice(index, 1);
-        this.displayCharacters();
+        this.displayCharacters(this.characters);
+    }
+
+    search(elem) {
+        let criterial = elem.name
+        let value = elem.value
+        if (value == "") {
+            this.displayCharacters(this.characters)
+            return
+        }
+        let result = this.characters.filter(element => {
+            return element[criterial] == value
+        })
+        this.displayCharacters(result)
+       
     }
 }

@@ -2,69 +2,189 @@
 <html lang="fr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/css/form.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/form.css">
 
-    <title>Rainbow Six Wiki</title>
+
+  <title>Rainbow Six Wiki</title>
 </head>
 
 <body>
 
-    <div id="mainContainer">
+  <div id="mainContainer">
 
-        <div id="containerForm">
-
-        </div>
-
-        <div id="containerFormUpdate">
-
-        </div>
+    <div id="containerForm">
 
     </div>
 
-    <header>
+    <div id="containerFormUpdate">
 
-        <h1>OPERATORS</h1>
-        <div id="displayFormBtn" class="btnForm">
-            <div class="containerbtn">
-                <a id="displayModal" class="button" onclick='' style="--color:#1e9bff;">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    ‎‎‎ Create<br>Operators
-                </a>
-            </div>
-            <div class="containerbtn">
-                <a class="button" href="#" style="--color:#1e9bff;">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    ‎‎‎ Search<br>Operators
-                </a>
-            </div>
+    </div>
+
+  </div>
+
+  <header>
+    <h1>OPERATORS</h1>
+
+    <div class="nav">
+
+      <div class="search-box">
+        <div>
+          <button class="btn-search"><i class="fas fa-search"></i></button>
+        </div>
+     
+        <div class="input-search ">
+          <div class="contain-filter animate__animated"> 
+            <input id="filter_role" onKeyPress="search(event,this)" class="filter" type="text" placeholder="role" name="role">
+            <input id="filter_health" onKeyPress="search(event,this)" class="filter" type="text" placeholder="health" name="health">
+            <input id="filter_speed" onKeyPress="search(event,this)" class="filter" type="text" placeholder="speed" name="speed">
+            <input id="filter_difficulty" onKeyPress="search(event,this)" class="filter" type="text" placeholder="difficulty" name="difficulty">
+          </div>
         </div>
 
-    </header>
+      </div>
+    </div>
 
-    <main>
+    <div id="displayFormBtn" class="btnForm">
+      <div class="containerbtn">
+        <button class="btn_head" id="displayModal" style="--clr:#0086f9">
+          <span class="button_txt">Create</span>
+          <i></i>
+        </button>
+      </div>
+    </div>
+  </header>
 
-        <div id="operator" class="container oplist__cards__wrapper">
-            <div class="card-container">
+  <main>
 
-            </div>
-        </div>
+    <div id="operator" class="container oplist__cards__wrapper">
+      <div class="card-container">
 
-    </main>
+      </div>
+    </div>
 
-    
-    <script src="../model/characters.js"></script>
-    <script src="../model/charactersManager.js"></script>
-    <script src="../main.js"></script>
+  </main>
+
+
+  <script src="../model/characters.js"></script>
+  <script src="../model/charactersManager.js"></script>
+  <script src="../main.js"></script>
 </body>
 
 </html>
+
+
+
+
+<style>
+  .checkbox-wrapper-16 *,
+  .checkbox-wrapper-16 *:after,
+  .checkbox-wrapper-16 *:before {
+    box-sizing: border-box;
+  }
+
+  .checkbox-wrapper-16 .checkbox-input {
+    clip: rect(0 0 0 0);
+    -webkit-clip-path: inset(100%);
+    clip-path: inset(100%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+
+  .checkbox-wrapper-16 .checkbox-input:checked+.checkbox-tile {
+    border-color: #2260ff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    color: #2260ff;
+  }
+
+  .checkbox-wrapper-16 .checkbox-input:checked+.checkbox-tile:before {
+    transform: scale(1);
+    opacity: 1;
+    background-color: #2260ff;
+    border-color: #2260ff;
+  }
+
+  .checkbox-wrapper-16 .checkbox-input:checked+.checkbox-tile .checkbox-icon,
+  .checkbox-wrapper-16 .checkbox-input:checked+.checkbox-tile .checkbox-label {
+    color: #2260ff;
+  }
+
+  .checkbox-wrapper-16 .checkbox-input:focus+.checkbox-tile {
+    border-color: #2260ff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 0 0 4px #b5c9fc;
+  }
+
+  .checkbox-wrapper-16 .checkbox-input:focus+.checkbox-tile:before {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  .checkbox-wrapper-16 .checkbox-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 7rem;
+    min-height: 7rem;
+    border-radius: 0.5rem;
+    border: 2px solid #b5bfd9;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.15s ease;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .checkbox-wrapper-16 .checkbox-tile:before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 2px solid #b5bfd9;
+    background-color: #fff;
+    border-radius: 50%;
+    top: 0.25rem;
+    left: 0.25rem;
+    opacity: 0;
+    transform: scale(0);
+    transition: 0.25s ease;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='192' height='192' fill='%23FFFFFF' viewBox='0 0 256 256'%3E%3Crect width='256' height='256' fill='none'%3E%3C/rect%3E%3Cpolyline points='216 72.005 104 184 48 128.005' fill='none' stroke='%23FFFFFF' stroke-linecap='round' stroke-linejoin='round' stroke-width='32'%3E%3C/polyline%3E%3C/svg%3E");
+    background-size: 12px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+  }
+
+  .checkbox-wrapper-16 .checkbox-tile:hover {
+    border-color: #2260ff;
+  }
+
+  .checkbox-wrapper-16 .checkbox-tile:hover:before {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  .checkbox-wrapper-16 .checkbox-icon {
+    transition: 0.375s ease;
+    color: #494949;
+  }
+
+  .checkbox-wrapper-16 .checkbox-icon svg {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .checkbox-wrapper-16 .checkbox-label {
+    color: #707070;
+    transition: 0.375s ease;
+    text-align: center;
+  }
+</style>

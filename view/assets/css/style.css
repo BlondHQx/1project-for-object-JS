@@ -13,17 +13,107 @@ body {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
+/******MAIN TITLE*****/
+
 h1{
     text-align: center;
     color: white;
     margin-bottom: 50px;
 }
 
+/*****SEARCHBAR*****/
+.search-box{
+    display: flex;
+    
+    justify-content: end;
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  .contain-filter{
+    display: flex;
+    display: none;
+  }
+
+  
+  .input-search{
+    display: flex;
+    justify-content: flex-end;
+    height: 50px;
+    width: 50px;
+    border-style: none;
+    padding: 10px;
+    font-size: 18px;
+    letter-spacing: 2px;
+    outline: none;
+    border-radius: 25px;
+    transition: all .5s ease-in-out;
+    background-color: #0086f9;
+    padding-right: 40px;
+    color:#fff;
+  }
+  .input-search::placeholder{
+    color:rgba(255,255,255,.5);
+    font-size: 18px;
+    letter-spacing: 2px;
+    font-weight: 100;
+  }
+  .btn-search{
+    width: 50px;
+    height: 50px;
+    border-style: none;
+    font-size: 20px;
+    font-weight: bold;
+    outline: none;
+    cursor: pointer;
+    border-radius: 50%;
+    position: absolute;
+    right: 0px;
+    color:#ffffff ;
+    background-color:transparent;
+    pointer-events: painted;
+  }
+  .btn-search:focus ~ .input-search{
+    width: 300px;
+    border-radius: 0px;
+    background-color: transparent;
+    border-bottom:1px solid rgba(255,255,255,.5);
+    transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+  }
+  .input-search:focus{
+    width: 300px;
+    border-radius: 0px;
+    background-color: transparent;
+    border-bottom:1px solid rgba(255,255,255,.5);
+    transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+  }
+  /*****INPUT SEARCHBAR*****/
+.filter{
+    background: transparent;
+    width: 200px;
+    padding: 1em;
+    margin-left: 0;
+    margin-right: 3vh;
+    margin-bottom: 2em;
+    border: none;
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5000px;
+    backdrop-filter: blur(5px);
+    box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.32);
+    color: #fdfdfd;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/*****BTN FOR CREATE OPE*****/
 .btnForm{
     display: flex;
     justify-content: space-evenly
 }
 
+/*****CSS FOR CARDS*****/
 img {
     overflow-clip-margin: content-box;
     overflow: clip;
@@ -36,7 +126,7 @@ section {
     flex-direction: column;
 }
 
-span {
+.span_card {
     padding: 10px;
     padding-right: 0;
     background-color: #ffffff;
@@ -47,6 +137,9 @@ span {
 .container {
     padding: 10px;
     position: relative;
+    display: flex;
+}
+.card-container{
     display: flex;
 }
 
