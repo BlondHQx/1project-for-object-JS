@@ -1,0 +1,173 @@
+body {
+    padding-right: 0px !important;
+    padding-bottom: 0px !important;
+    padding-left: 0px !important;
+    background: #212e50 url(../img/background.png) 50% 50% repeat-y;
+    background-size: 100%;
+}
+
+*,
+:after,
+:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+h1{
+    text-align: center;
+    color: white;
+    margin-bottom: 50px;
+}
+
+.btnForm{
+    display: flex;
+    justify-content: space-evenly
+}
+
+img {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+section {
+    text-decoration: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+span {
+    padding: 10px;
+    padding-right: 0;
+    background-color: #ffffff;
+    text-decoration: none;
+    color: #000;
+}
+
+.container {
+    padding: 10px;
+    position: relative;
+    display: flex;
+}
+
+.oplist__cards__wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -5px;
+    padding-top: 60px;
+    font-size: 10px;
+    line-height: 0;
+    overflow: visible;
+}
+
+.oplist_card_container {
+    margin-right: 10px;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(17, 25, 40, 0.25);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    filter: drop-shadow(0 30px 10px rgba(0, 0, 0, 0.125));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.oplist_card_container:hover {
+    background-color: #0000002b;
+    color: #000;
+    text-shadow: none;
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.oplist__card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    color: #24262a;
+    background-color: hsla(0,0%,100%,.15);
+    overflow: hidden;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    transition-property: all;
+}
+
+.oplist_card .oplist_card_img {
+    margin: 15px;
+    margin-top: 10px;
+    position: relative;
+    height: 250px;
+    width: 90%;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.255)
+}
+
+.oplist_card_icon {
+    position: absolute;
+    bottom: 0;
+    width: 6vw;
+    top: 35%;
+    left: 30%;
+}
+
+
+.txt{
+    background-color: white;
+}
+
+.button-wrapper {
+    margin-top: 10px;
+}
+
+.btn {
+    border: none;
+    margin-bottom: 10px;
+    padding: 12px 24px;
+    border-radius: 24px;
+    font-size: 12px;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    
+}
+
+.btn+.btn {
+    margin-left: 10px;
+}
+
+.outline {
+    background: transparent;
+    color: rgb(255, 255, 255);
+    border: 1px solid rgba(0, 212, 255, 0.6);
+    transition: all .3s ease;
+
+}
+
+.outline:hover {
+    transform: scale(1.125);
+    color: rgba(255, 255, 255, 0.9);
+    border-color: rgba(255, 255, 255, 0.9);
+    transition: all .3s ease;
+}
+
+.fill {
+    background: rgba(0, 212, 255, 0.9);
+    color: rgba(255, 255, 255, 0.95);
+    filter: drop-shadow(0);
+    border: 1px solid rgb(255, 255, 255);
+    font-weight: bold;
+    transition: all .3s ease;
+}
+
+.fill:hover {
+    transform: scale(1.125);
+    border-color: rgba(255, 255, 255, 0.9);
+    filter: drop-shadow(0 10px 5px rgba(0, 0, 0, 0.125));
+    transition: all .3s ease;
+}
