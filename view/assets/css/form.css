@@ -77,7 +77,7 @@ form {
     background: rgba(78, 78, 78, 0.18);
     padding-right: 3vh;
     padding: 3em;
-    height: 79vh;
+    height: 82vh;
     width: 100%;
     border-radius: 10px;
     border-left: 1px solid rgba(255, 255, 255, 0.3);
@@ -95,7 +95,7 @@ form p {
     opacity: 0.7;
     font-size: 1.4rem;
     margin-top: 0;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
@@ -158,6 +158,53 @@ form input[type="button"]:active {
 
 form:hover {
     margin: 4px;
+}
+
+select{
+    background: transparent;
+    width: 200px;
+    padding: 1em;
+    margin-left: 0;
+    margin-bottom: 2em;
+    border: none;
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5000px;
+    backdrop-filter: blur(5px);
+    box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
+    color: #fdfdfd;
+    font-family: Montserrat, sans-serif;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+form select:hover {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
+}
+
+form select[type="text"]:focus {
+    background: #ffffff1a;
+    box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
+}
+
+form select[type="button"] {
+    margin-top: 0;
+    width: 100px;
+    font-size: 1rem;
+}
+
+form select[type="button"]:hover {
+    cursor: pointer;
+}
+
+form select[type="button"]:active {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+form option{
+    background-color: #2f17bcfa;
 }
 
 ::placeholder {

@@ -5,6 +5,7 @@ document.querySelector("#displayFormBtn").addEventListener('click', () => {
 });
 
 document.querySelector("#displayModal").addEventListener('click', () => {
+    document.querySelector('#containerForm').style.display = 'flex';
     gameManager.displayForm();
 });
 
@@ -15,7 +16,6 @@ function search(key, elem) {
 }
 
 document.querySelector('.btn-search').addEventListener('click', () => {
-
     if (document.querySelector('.contain-filter').classList.contains('animate__fadeInRight')) {
         document.querySelector('.contain-filter').classList.remove('animate__fadeInRight');
         document.querySelector('.contain-filter').style.display = 'none';
@@ -25,3 +25,8 @@ document.querySelector('.btn-search').addEventListener('click', () => {
         document.querySelector('.contain-filter').classList.add('animate__fadeInRight');
     }
 })
+
+let imgSrc = document.querySelector('.oplist_card_icon')
+let operatorType = document.querySelector('#type');
+
+

@@ -114,7 +114,8 @@ h1{
 }
 
 /*****CSS FOR CARDS*****/
-img {
+.oplist_card_img {
+    background-color: #00aaff25;
     overflow-clip-margin: content-box;
     overflow: clip;
 }
@@ -204,9 +205,9 @@ section {
 .oplist_card_icon {
     position: absolute;
     bottom: 0;
-    width: 6vw;
-    top: 35%;
-    left: 30%;
+    width: 4.5vw;
+    top: 36%;
+    left: 35%;
 }
 
 

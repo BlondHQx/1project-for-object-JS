@@ -6,16 +6,23 @@ class CharactersManager {
     addCharacters(charac) {
         this.characters.push(charac);
         this.displayCharacters(this.characters);
+        console.log(charac);
     }
     //DISPLAY OPERATOR CARDS
     displayCharacters(characters) {
+       let img;
         document.querySelector('.card-container').innerHTML = "";
         characters.forEach(elem => {
+           if (elem.type == "defender") {
+            img = "./assets/img/defender.svg"
+           }else {
+            img = "./assets/img/attacker.svg"
+           }
             document.querySelector('.card-container').innerHTML += ` 
             <div class="oplist_card_container">
                  <section class="oplist_card">
-                         <img id="imgLocal" class="oplist_card_img" src="./assets/img/Removal-844.png" alt="Jäger Img">
-                         <img class="oplist_card_icon" src="./assets/img/Y0R6_BADGE_Jager_L (1).png" alt="Jäger Icon">
+                         <img class="oplist_card_img" src="./assets/img/Removal-844.png" alt="Img in dev">
+                         <img class="oplist_card_icon" src="${img}" alt="Icon">
                         <span class="span_card name">${elem.name}</span>
                         <span class="span_card type">${elem.type}</span>
                         <span class="span_card squad">${elem.squad}</span>
@@ -74,7 +81,10 @@ class CharactersManager {
                 </div>
             <p>Create Operator :</p>
                 <input id="name" class="name"type="text" placeholder="name" ><br>
-                <input id="type" class="type"type="text" placeholder="type"><br>
+                <select id="type">
+                <option value="attacker">Attacker</option>
+                <option value="defender">Defender</option>
+                </select>
                 <input id="squad" class="squad" type="text" placeholder="squad""><br>
                 <input id="role" class=""type="text" placeholder="role"><br>
                 <input id="health" class="health"type="text" placeholder="health"><br>
@@ -139,7 +149,10 @@ class CharactersManager {
                 </div>
                 <p>Update Operator :</p>
                 <input id="updateName" class="name"type="text" value="${charac.name}"><br>
-                <input id="updateType" class="type"type="text" value="${charac.type}"><br>
+                <select id="updateType">${charac.type}
+                <option value="attacker">Attacker</option>
+                <option value="defender">Defender</option>
+                </select><br>
                 <input id="updateSquad" class="squad" type="text" value="${charac.squad}"><br>
                 <input id="updateRole" class=""type="text" value="${charac.role}"><br>
                 <input id="updateHealth" class="health"type="text" value="${charac.health}"><br>
