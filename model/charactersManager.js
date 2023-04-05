@@ -14,7 +14,7 @@ class CharactersManager {
             document.querySelector('.card-container').innerHTML += ` 
             <div class="oplist_card_container">
                  <section class="oplist_card">
-                         <img class="oplist_card_img" src="./assets/img/Removal-844.png" alt="Jäger Img">
+                         <img id="imgLocal" class="oplist_card_img" src="./assets/img/Removal-844.png" alt="Jäger Img">
                          <img class="oplist_card_icon" src="./assets/img/Y0R6_BADGE_Jager_L (1).png" alt="Jäger Icon">
                         <span class="span_card name">${elem.name}</span>
                         <span class="span_card type">${elem.type}</span>
@@ -29,6 +29,29 @@ class CharactersManager {
                     </div>
                  </section>
             </div>`
+            //BTN UPDATE + DIV BTN IN CREATE ELEMENT.
+            /*let divBtn = document.createElement('div')
+            divBtn.classList.add('.button-wrapper')
+            document.querySelector(.)
+            let btnUpdate = document.createElement('button')
+            btnUpdate.classList.add("btn", "outline")
+            console.log(btnUpdate);
+            btnUpdate.innerText = "UPDATE"
+            btnUpdate.addEventListener('click', () => {
+                document.querySelector("#containerForm").style.display = 'none';
+                this.displayForm();
+                this.displayModalUpdate(elem);
+            });
+            document.querySelector('.button-wrapper').appendChild(btnUpdate)
+            //BTN DELETE
+            let btnDelete = document.createElement('button')
+            btnDelete.classList.add("btn", "fill")
+            btnDelete.innerText = "DELETE"
+            btnDelete.addEventListener('click', () => {
+                this.deleteCharac(elem);
+            });
+            document.querySelector('.button-wrapper').appendChild(btnDelete)
+        });*/
             document.querySelector("#updateCharac").addEventListener('click', () => {
                 document.querySelector("#containerForm").style.display = 'none';
                 this.displayForm();
@@ -67,7 +90,7 @@ class CharactersManager {
                 <div class="drop drop-4"></div>
                 <div class="drop drop-5"></div>
             </div>
-        </div>`;
+        </div>`
         //CLOSE FORM ANYTIME WITH 'X'
         document.querySelector('#close_Form').addEventListener('click', () => {
             this.closeform();
@@ -109,6 +132,11 @@ class CharactersManager {
         document.querySelector("#containerFormUpdate").innerHTML +=
             `<div>
             <form>
+                <div id="close_FormUpdate" class="close-container">
+                    <div class="leftright"></div>
+                    <div class="rightleft"></div>
+                    <label  class="close">close</label>
+                </div>
                 <p>Update Operator :</p>
                 <input id="updateName" class="name"type="text" value="${charac.name}"><br>
                 <input id="updateType" class="type"type="text" value="${charac.type}"><br>
@@ -128,6 +156,10 @@ class CharactersManager {
                 <div class="drop drop-5"></div>
             </div>
             </div>`;
+        //CLOSE FORM ANYTIME WITH 'X'
+        document.querySelector('#close_FormUpdate').addEventListener('click', () => {
+            this.closeform();
+        });
         //SUBMIT BUTTON OF UPDATED FORM 
         document.querySelector("#updateSubmit").addEventListener('click', () => {
             let name = document.querySelector('#updateName').value;
@@ -148,13 +180,13 @@ class CharactersManager {
         this.characters[index] = charac;
         this.displayCharacters(this.characters);
     }
-    //DELETE METHOD FOR DELETE CARDS
+    //DELETE METHOD FOR DELETE CHARACTERS
     deleteCharac(charac) {
         let index = this.characters.indexOf(charac);
         this.characters.splice(index, 1);
         this.displayCharacters(this.characters);
     }
-
+//FILTER METHOD FOR SEARCH BAR
     search(elem) {
         let criterial = elem.name
         let value = elem.value
@@ -166,6 +198,6 @@ class CharactersManager {
             return element[criterial] == value
         })
         this.displayCharacters(result)
-       
+
     }
 }
