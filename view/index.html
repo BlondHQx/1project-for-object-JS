@@ -9,21 +9,18 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <link rel="stylesheet" href="./assets/css/style.css">
   <link rel="stylesheet" href="./assets/css/form.css">
-
-
   <title>Rainbow Six Wiki</title>
 </head>
 
 <body>
 
+  <!---FORM CONTAINER--->
   <div id="mainContainer">
 
     <div id="containerForm">
-
     </div>
 
     <div id="containerFormUpdate">
-
     </div>
 
   </div>
@@ -40,7 +37,7 @@
      
         <div class="input-search ">
           <div class="contain-filter animate__animated"> 
-            <input id="filter_role" onKeyPress="search(event,this)" class="filter" type="text" placeholder="role" name="role">
+            <input id="filter_type" onKeyPress="search(event,this)" class="filter" type="text" placeholder="type" name="type">
             <input id="filter_health" onKeyPress="search(event,this)" class="filter" type="text" placeholder="health" name="health">
             <input id="filter_speed" onKeyPress="search(event,this)" class="filter" type="text" placeholder="speed" name="speed">
             <input id="filter_difficulty" onKeyPress="search(event,this)" class="filter" type="text" placeholder="difficulty" name="difficulty">
@@ -61,16 +58,14 @@
   </header>
 
   <main>
-
+<!---CARD CONTAINER--->
     <div id="operator" class="container oplist__cards__wrapper">
-      <div class="card-container">
+      <div id='op_card_container' class="card-container">
 
       </div>
     </div>
 
   </main>
-
-
   <script src="../model/characters.js"></script>
   <script src="../model/charactersManager.js"></script>
   <script src="../main.js"></script>

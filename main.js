@@ -26,7 +26,4 @@ document.querySelector('.btn-search').addEventListener('click', () => {
     }
 })
 
-let imgSrc = document.querySelector('.oplist_card_icon')
-let operatorType = document.querySelector('#type');
-
 
